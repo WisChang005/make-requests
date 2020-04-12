@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"gopkg.in/ini.v1"
@@ -24,7 +25,10 @@ func main() {
 		}
 	}
 	fmt.Println("=============================================")
-	fmt.Printf("\nPages add [ %d ] views\n", repeats)
+	fmt.Printf("\nPages add [ %d ] views, 五秒後自動關閉...\n", repeats)
+
+	pauseTime := time.Duration(5) * time.Second
+	time.Sleep(pauseTime)
 }
 
 func errorCheck(err error, errMsg string) {
